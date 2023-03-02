@@ -40,6 +40,7 @@ pub fn view(tokens: TokenStream) -> TokenStream {
             let rest_of_tokens = tokens.collect::<proc_macro2::TokenStream>();
 
             let output = quote! {
+                use leptos_meta::{Style, StyleProps};
                 let hydration_context_id = leptos_dom::HydrationCtx::peek();
                 let style_struct = #styles_result.unwrap();
                 let class_name = format!("styled-{}", hydration_context_id);
